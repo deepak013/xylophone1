@@ -1,8 +1,10 @@
 package dg.deepak.xylophone;
 
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +24,10 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        if(Build.VERSION.SDK_INT >=21) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            getWindow().setStatusBarColor(Color.WHITE);
+        }
         mySoundPool = new SoundPool(Max_NUMBER_STREAMS, AudioManager.STREAM_MUSIC, SOURCE_QUALITY);
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
         actVolume = (float) audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
