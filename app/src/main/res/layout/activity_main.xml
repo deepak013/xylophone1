@@ -16,7 +16,6 @@
             android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:clickable="true"
             android:background="#E74c3c"
             android:onClick="onButtonPressed"
             android:tag="1"
